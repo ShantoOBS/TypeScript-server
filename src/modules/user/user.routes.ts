@@ -5,7 +5,7 @@ import { auth } from "../../middleware/auth";
 
 router.post("/",userContorllers.createUser);
 
-router.get("/",auth(),userContorllers.getAllUser);
+router.get("/",auth("user"),userContorllers.getAllUser);
 
 router.get("/:id",userContorllers.getSingleUser);
 
