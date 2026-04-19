@@ -1,10 +1,11 @@
 import express from "express"
 const router= express.Router();
 import { userContorllers } from "./user.controller"
+import { auth } from "../../middleware/auth";
 
 router.post("/",userContorllers.createUser);
 
-router.get("/",userContorllers.getAllUser);
+router.get("/",auth(),userContorllers.getAllUser);
 
 router.get("/:id",userContorllers.getSingleUser);
 
